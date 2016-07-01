@@ -10,18 +10,18 @@
     <title>@yield('title') | Test</title>
 
     <!-- Bootstrap -->
-    <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- iCheck -->
-    <link href="assets/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="{{ asset('assets/iCheck/skins/flat/green.css') }}" rel="stylesheet">
     <!-- bootstrap-progressbar -->
-    <link href="assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
     <!-- jVectorMap -->
-    <link href="css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
+    <link href="{{ asset('css/maps/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet"/>
 
     <!-- Custom Theme Style -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -67,42 +67,42 @@
     </div>
 
     <!-- jQuery -->
-    <script src="assets/jquery/dist/jquery.min.js"></script>
+    <script src="{{ asset('assets/jquery/dist/jquery.min.js') }}"></script>
     <!-- Bootstrap -->
-    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <!-- FastClick -->
-    <script src="assets/fastclick/lib/fastclick.js"></script>
+    <script src="{{ asset('assets/fastclick/lib/fastclick.js') }}"></script>
     <!-- NProgress -->
-    <script src="assets/nprogress/nprogress.js"></script>
+    <script src="{{ asset('assets/nprogress/nprogress.js') }}"></script>
     <!-- Chart.js -->
-    <script src="assets/Chart.js/dist/Chart.min.js"></script>
+    <script src="{{ asset('assets/Chart.js/dist/Chart.min.js') }}"></script>
     <!-- gauge.js -->
-    <script src="assets/bernii/gauge.js/dist/gauge.min.js"></script>
+    <script src="{{ asset('assets/bernii/gauge.js/dist/gauge.min.js') }}"></script>
     <!-- bootstrap-progressbar -->
-    <script src="assets/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="{{ asset('assets/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
     <!-- iCheck -->
-    <script src="assets/iCheck/icheck.min.js"></script>
+    <script src="{{ asset('assets/iCheck/icheck.min.js') }}"></script>
     <!-- Skycons -->
-    <script src="assets/skycons/skycons.js"></script>
+    <script src="{{ asset('assets/skycons/skycons.js') }}"></script>
     <!-- Flot -->
-    <script src="assets/Flot/jquery.flot.js"></script>
-    <script src="assets/Flot/jquery.flot.pie.js"></script>
-    <script src="assets/Flot/jquery.flot.time.js"></script>
-    <script src="assets/Flot/jquery.flot.stack.js"></script>
-    <script src="assets/Flot/jquery.flot.resize.js"></script>
+    <script src="{{ asset('assets/Flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('assets/Flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ asset('assets/Flot/jquery.flot.time.js') }}"></script>
+    <script src="{{ asset('assets/Flot/jquery.flot.stack.js') }}"></script>
+    <script src="{{ asset('assets/Flot/jquery.flot.resize.js') }}"></script>
     <!-- Flot plugins -->
-    <script src="js/flot/jquery.flot.orderBars.js"></script>
-    <script src="js/flot/date.js"></script>
-    <script src="js/flot/jquery.flot.spline.js"></script>
-    <script src="js/flot/curvedLines.js"></script>
+    <script src="{{ asset('js/flot/jquery.flot.orderBars.js') }}"></script>
+    <script src="{{ asset('js/flot/date.js') }}"></script>
+    <script src="{{ asset('js/flot/jquery.flot.spline.js') }}"></script>
+    <script src="{{ asset('js/flot/curvedLines.js') }}"></script>
     <!-- jVectorMap -->
-    <script src="js/maps/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="{{ asset('js/maps/jquery-jvectormap-2.0.3.min.js') }}"></script>
     <!-- bootstrap-daterangepicker -->
-    <script src="js/moment/moment.min.js"></script>
-    <script src="js/datepicker/daterangepicker.js"></script>
+    <script src="{{ asset('js/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('js/datepicker/daterangepicker.js') }}"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="js/custom.js"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
 
     <!-- Flot -->
     <script>
@@ -181,9 +181,9 @@
     <!-- /Flot -->
 
     <!-- jVectorMap -->
-    <script src="js/maps/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="js/maps/jquery-jvectormap-us-aea-en.js"></script>
-    <script src="js/maps/gdp-data.js"></script>
+    <script src="{{ asset('js/maps/jquery-jvectormap-world-mill-en.js') }}"></script>
+    <script src="{{ asset('js/maps/jquery-jvectormap-us-aea-en.js') }}"></script>
+    <script src="{{ asset('js/maps/gdp-data.js') }}"></script>
     <script>
       $(document).ready(function(){
         $('#world-map-gdp').vectorMap({

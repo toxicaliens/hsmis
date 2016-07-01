@@ -10,17 +10,17 @@
     <title>@yield('title') | Test</title>
 
     <!-- Bootstrap -->
-    <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('assets/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- iCheck -->
-    <link href="assets/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="{{ URL::asset('assets/iCheck/skins/flat/green.css') }}" rel="stylesheet">
     <!-- Datatables -->
-    <link href="assets/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="assets/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="assets/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="assets/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="assets/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('assets/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="css/custom.css" rel="stylesheet">
@@ -93,29 +93,29 @@
     </div>
 
     <!-- jQuery -->
-    <script src="assets/jquery/dist/jquery.min.js"></script>
+    <script src=" {{ URL::asset('assets/jquery/dist/jquery.min.js') }} "></script>
     <!-- Bootstrap -->
-    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{ URL::asset('assets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <!-- FastClick -->
-    <script src="assets/fastclick/lib/fastclick.js"></script>
+    <script src="{{ URL::asset('assets/fastclick/lib/fastclick.js') }}"></script>
     <!-- NProgress -->
-    <script src="assets/nprogress/nprogress.js"></script>
+    <script src="{{ URL::asset('assets/nprogress/nprogress.js') }}"></script>
     <!-- Datatables -->
-    <script src="assets/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="assets/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="assets/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="assets/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="assets/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="assets/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="assets/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="assets/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="assets/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="assets/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="assets/datatables.net-scroller/js/datatables.scroller.min.js"></script>
-    <script src="assets/jszip/dist/jszip.min.js"></script>
-    <script src="assets/pdfmake/build/pdfmake.min.js"></script>
-    <script src="assets/pdfmake/build/vfs_fonts.js"></script>
+    <script src="{{ URL::asset('assets/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/datatables.net-buttons-bs/js/buttons.bootstrap.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/datatables.net-responsive-bs/js/responsive.bootstrap.js') }}"></script>
+    <script src="{{ URL::asset('assets/datatables.net-scroller/js/datatables.scroller.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/jszip/dist/jszip.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/pdfmake/build/pdfmake.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/pdfmake/build/vfs_fonts.js') }}"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="js/custom.js"></script>
