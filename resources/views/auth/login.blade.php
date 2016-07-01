@@ -1,7 +1,6 @@
 @extends('layouts.login-master')
 
-@section('title', 'PSMIS')
-
+@section('title', 'Login')
 @section('content')
 <div id="login" class=" form">
 	<section class="login_content">
