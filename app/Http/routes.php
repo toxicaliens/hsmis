@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -17,6 +16,13 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
-Route::get('/dashboard', 'DashboardController@index');
+// Route::get('/home', 'HomeController@index');
+Route::get('/home', 'DashboardController@index');
+
 Route::get('/users', 'UserModuleController@index');
+
+#### System Settings Module
+Route::get('/views', 'ViewsController@index');
+Route::get('/load-views', 'ViewsController@loadViews');
+Route::post('/add-view', 'ViewsController@store');
+Route::get('/menu', 'MenuController@index');

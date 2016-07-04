@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Menu;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class UserModuleController extends Controller
+class MenuController extends Controller
 {
 	public function __construct(){
-		$this->middleware('auth');
+		return $this->middleware('auth');
 	}
 	
     public function index(){
-    	$users = User::all();
+    	$menu = Menu::all();
     	
-    	return view('users.index', ['users' => $users]);
+    	return view('system.menu', [ 'menu' => $menu ]);
 	}
 }

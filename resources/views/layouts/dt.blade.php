@@ -21,9 +21,17 @@
     <link href="{{ URL::asset('assets/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Add More Css -->
+    <!-- Select2 -->
+    <link href="{{ URL::asset('assets/select2/dist/css/select2.min.css') }}" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="{{ URL:: asset('css/custom.css') }}" rel="stylesheet">
+    <style>
+		a.edit-btn, a.delete-btn{
+			margin: 0px; padding: 0px 5px;
+		}
+	</style>
     @stack('css')
   </head>
 
@@ -78,18 +86,26 @@
             <div class="row">
             	<div class="col-md-12 col-sm-12 col-xs-12">
                	 	<div class="x_panel">
-						@yield('content')
+               	 		<div class="x_title">
+							<h2>@yield('widget-title')<small>@yield('widget-desc')</small></h2>
+							@yield('actions')
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content">
+                          		<p class="text-muted font-13 m-b-30">@yield('table-description')</p>
+								@yield('content')
+						</div>
 					</div>              
-        		</div>
-        	</div>
-        <!-- /page content -->
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- /page content -->
 
         <!-- footer content -->
         @include('layouts.includes.footer')
         <!-- /footer content -->
       </div>
-    </div>
-    </div>
     </div>
 
     <!-- jQuery -->
@@ -116,6 +132,12 @@
     <script src="{{ URL::asset('assets/jszip/dist/jszip.min.js') }}"></script>
     <script src="{{ URL::asset('assets/pdfmake/build/pdfmake.min.js') }}"></script>
     <script src="{{ URL::asset('assets/pdfmake/build/vfs_fonts.js') }}"></script>
+    
+    <!-- Add More Template Scripts -->
+    <!-- Select2 -->
+    <script src="{{ URL::asset('assets/select2/dist/js/select2.full.min.js') }}"></script>
+    <!-- validator -->
+    <script src="{{ URL::asset('assets/validator/validator.min.js') }}"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="js/custom.js"></script>
@@ -187,5 +209,66 @@
       });
     </script>
     <!-- /Datatables -->
+    
+    <!-- Select2 -->
+    <script>
+      $(document).ready(function() {
+        $(".select2_single").select2({
+          placeholder: "Select an Option",
+          allowClear: true
+        });
+        $(".select2_group").select2({});
+        $(".select2_multiple").select2({
+          maximumSelectionLength: 4,
+          placeholder: "With Max Selection limit 4",
+          allowClear: true
+        });
+      });
+    </script>
+    <!-- /Select2 -->
+    
+    <!-- validator -->
+    <script>
+      // initialize the validator function
+      validator.message.date = 'not a real date';
+
+      // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+      $('form')
+        .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+        .on('change', 'select.required', validator.checkField)
+        .on('keypress', 'input[required][pattern]', validator.keypress);
+
+      $('.multi.required').on('keyup blur', 'input', function() {
+        validator.checkField.apply($(this).siblings().last()[0]);
+      });
+
+      $('form').submit(function(e) {
+        e.preventDefault();
+        var submit = true;
+
+        // evaluate the form using generic validaing
+        if (!validator.checkAll($(this))) {
+          submit = false;
+        }
+
+        if (submit)
+          this.submit();
+
+        return false;
+      });
+    </script>
+    <!-- /validator -->
+	
+	<script type="text/javascript">
+		$(function(){
+			$('#add_btn').on('click', function(){
+				$('#add_form').submit();
+			});
+
+			$('#edit_btn').on('click', function(){
+				$('#edit_form').submit();
+			});
+		});
+	</script>    
   </body>
 </html>
