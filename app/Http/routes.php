@@ -26,3 +26,4 @@ Route::get('/views', 'ViewsController@index');
 Route::get('/load-views', 'ViewsController@loadViews');
 Route::post('/add-view', 'ViewsController@store');
 Route::get('/menu', 'MenuController@index');
+Route::get('/parent-views', 'ViewsController@parentViews');

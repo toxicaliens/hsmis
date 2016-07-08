@@ -1,15 +1,15 @@
 @extends('layouts.dt')
-@section('title', 'System Views')
+@section('title', 'Routes')
 
 @push('scripts')
 	<script src="{{ URL::asset('custom_js/views.js') }}"></script>
 @endpush
 
-@section('page-title', 'System Views')
-@section('page-desc', 'All the Accessible System Pages')
+@section('page-title', 'Routes')
+@section('page-desc', 'All the Accessible Routes')
 
 @section('content')
-	@section('widget-title', 'Manage System Views')
+	@section('widget-title', 'Manage System Routes')
 		@section('actions')
 			<ul class="nav navbar-right panel_toolbox">
 				<li>
@@ -24,17 +24,6 @@
 				</li>
 			</ul>
 		@endsection
-		
-		@if(count($errors) > 0)
-			<div class="alert alert-warning">
-				<ul>
-					@foreach($errors->all() as $error)
-						<button class="close" data-dismiss="alert">&times;</button>
-						<li>{{ $error }}</li>
-					@endforeach
-				</ul>
-			</div>
-		@endif
 		
 		<table class="table jambo_table table-striped table-bordered dt-responsive views-table">
 			<thead>
@@ -58,101 +47,52 @@
 
           			<div class="modal-header">
             			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            			<h4 class="modal-title" id="myModalLabel2"><i class="fa fa-file-code-o"></i> Add System View</h4>
+            			<h4 class="modal-title" id="myModalLabel2"><i class="fa fa-file-code-o"></i> Add Route</h4>
 			        </div>
           			<div class="modal-body">
-
-		            	<div id="testmodal2" style="padding: 5px 20px;">
-		              		<form id="add_form" class="form-horizontal form-label-left" action="{{ url('/add-view') }}" method="post">
-		              			{{ csrf_field() }}
-		                		<div class="item form-group">
-		                  			<label class="col-sm-3 control-label">Name</label>
-		                  			<div class="col-sm-9">
-		                    			<input type="text" class="form-control" name="view_name">
-		                  			</div>
-		                		</div>
-		                		
-		                		<div class="item form-group">
-		                  			<label class="col-sm-3 control-label">Url</label>
-		                  			<div class="col-sm-9">
-		                    			<input type="text" class="form-control" name="url" required="required"/>
-		                  			</div>
-		                		</div>
-		                		
-		                		<div class="item form-group">
-		                  			<label class="col-sm-3 control-label">Parent</label>
-		                  			<div class="col-sm-9">
-		                    			<select name="parent_view" class="form-control select2_single" style="width: 100%;" required="required">
-		                    				<option value="NULL">--Choose Parent--</option>
-		                    				@foreach($parent_views as $p_view)
-		                    					<option value="{{ $p_view->id }}">{{ $p_view->view_name }}</option>
-		                    				@endforeach
-		                    			</select>
-		                  			</div>
-		                		</div>
-		                		
-		                		<div class="modal-footer">
-		            <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button>
-		            <button type="button" id="add_btn" class="btn btn-primary antosubmit2">Save</button>
-		          </div>
-              		  		</form>
-            			</div>
-            			
+          				<div class="progress add_ps" style="height:10px; display:none;">
+                        	<div class="progress-bar progress-bar-info progress-bar-striped active" data-transitiongoal="65" aria-valuenow="65" style="width: 100%; "></div>
+                      	</div>
+                      	<div class="alert alert-warning" id="add_errors" style="display: none;">
+							<ol></ol>
+						</div>
+						<div class="alert alert-success" id="add_success" style="display: none;">
+							<button class="close" data-dismiss="modal">&times;</button>
+							<strong>Success!</strong> The Route has been added.
+						</div>
+						<form action="" method="post" class="form-horizontal" id="add_form">
+			            	<div id="testmodal2" style="padding: 5px 20px;">
+			              			{{ csrf_field() }}
+			                		<div class="form-group">
+			                  			<label class="col-sm-3 control-label">Name</label>
+			                  			<div class="col-sm-9">
+			                    			<input type="text" class="form-control" name="view_name">
+			                  			</div>
+			                		</div>
+			                		
+			                		<div class="form-group">
+			                  			<label class="col-sm-3 control-label">Url</label>
+			                  			<div class="col-sm-9">
+			                    			<input type="text" class="form-control" name="url"/>
+			                  			</div>
+			                		</div>
+			                		
+			                		<div class="form-group">
+			                  			<label class="col-sm-3 control-label">Parent</label>
+			                  			<div class="col-sm-9">
+			                    			<select name="parent_view" id="parent_views" class="form-control select2_single" style="width: 100%;"></select>
+			                  			</div>
+			                		</div>
+			                		
+			                		<div class="modal-footer">
+						            	<button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button>
+						            	<button type="submit" class="btn btn-primary antosubmit2">Save</button>
+						          </div>
+	            			</div>
+            			</form>	
           			</div>
           			
 		          
-        		</div>
-      		</div>
-    </div>
-    
-    <div id="edit-view" class="modal fade role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      		<div class="modal-dialog">
-        		<div class="modal-content">
-
-          			<div class="modal-header">
-            			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            			<h4 class="modal-title" id="myModalLabel2"><i class="fa fa-edit"></i> Update System View</h4>
-			        </div>
-          			<div class="modal-body">
-
-		            	<div id="testmodal2" style="padding: 5px 20px;">
-		              		<form id="edit_form" class="form-horizontal calender" role="form" action="{{ url('/add-view') }}" method="post">
-		              			{{ csrf_field() }}
-		                		<div class="form-group">
-		                  			<label class="col-sm-3 control-label">Name</label>
-		                  		
-		                  			<div class="col-sm-9">
-		                    			<input type="text" id="view_name" class="form-control" name="view_name">
-		                  			</div>
-		                		</div>
-		                		
-		                		<div class="form-group">
-		                  			<label class="col-sm-3 control-label">Url</label>
-		                  			<div class="col-sm-9">
-		                    			<input type="text" id="url" class="form-control" name="url"/>
-		                  			</div>
-		                		</div>
-		                		
-		                		<div class="form-group">
-		                  			<label class="col-sm-3 control-label">Parent</label>
-		                  			<div class="col-sm-9">
-		                    			<select name="parent_view" id="parent" class="form-control select2_single" style="width: 100%;">
-		                    				<option value="NULL">--Choose Parent--</option>
-		                    				@foreach($parent_views as $p_view)
-		                    					<option value="{{ $p_view->id }}">{{ $p_view->view_name }}</option>
-		                    				@endforeach
-		                    			</select>
-		                  			</div>
-		                		</div>
-              		  		</form>
-            			</div>
-            			
-          			</div>
-          			
-		          <div class="modal-footer">
-		            <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button>
-		            <button type="button" id="edit_btn" class="btn btn-primary antosubmit2">Save</button>
-		          </div>
         		</div>
       		</div>
     </div>
